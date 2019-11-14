@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- babel => compilation du JSX -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="helpers.js"></script>
+
+    <style>
+      
+    </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+class BaseNumberInput extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { error: false, message: '' };
+  }
+
+  handleChange(e) {
+
+    // vérification des données avant traitement dans le parent
+    const number = e.target.value;
+    this.setState((state) => ({ error: false, message: '' }));
+
+    if (number.length === 0) {
+      this.props.onChangeBase(number, this.props.base);
+
+      return;
+    };
+
+
+    if (this.props.base === 'binary' && isBinary(number) === false) {
+      this.props.onChangeBase(number, this.props.base);
+
+      this.setState({ error: true, message: "Attention vous devez écrire un binaire" });
+
+      return;
+    }
+
+    if (this.props.base === 'decimal' && Number.isNaN(parseInt(number)) === true) {
+      this.props.onChangeBase(number, this.props.base);
+
+      this.setState({ error: true, message: "Attention vous devez écrire un décimal" });
+
+      return;
+    }
+
+    this.props.onChangeBase(number, this.props.base);
+  }
+
+  render() {
+    const number = this.props.number;
+
+    return (
+      <div className="base form-group">
+        <label>Number: {this.props.base} </label>
+        <input
+          value={number}
+          onChange={(e) => this.handleChange(e)}
+          className="form-control"
+        />
+        {this.state.error ? <p className="alert alert-danger">{this.state.message}</p> : null}
+      </div>
+    );
+  }
+}
+  
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      decimal: 0,
+      binary: 0
+    }
+  }
+
+  handleChange(number, b) {
+
+    if (b == 'decimal') {
+      this.setState({
+        binary: decimalToBinary(number),
+        decimal: number
+      })
+    }
+
+    if (b == 'binary') {
+      this.setState({
+        decimal: binaryToDecimal(number),
+        binary: number
+      })
+    }
+  }
+
+  render() {
+
+    const { binary, decimal } = this.state;
+
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1>Convertir un nombre en base decimal --> binary et réciproquement </h1>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <BaseNumberInput
+              base="decimal"
+              number={decimal}
+              onChangeBase={(e, b) => this.handleChange(e, b)}
+            />
+            <BaseNumberInput
+              base="binary"
+              number={binary} onChangeBase={(e, b) => this.handleChange(e, b)}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+  );
+</script>
+</body>
+</html>

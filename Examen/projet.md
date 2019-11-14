@@ -22,7 +22,7 @@ Si vous n'avez pas de projet vous devrez prendre un des trois projets que je pro
 
 ## Planning et temps de développement
 
-Vous avez 2 jours de suivi de projet et une journée de soutenance.
+Vous avez 2.5 jours de suivi de projet et une journée de soutenance.
 
 - lundi : Redux.
 
@@ -31,7 +31,7 @@ Vous avez 2 jours de suivi de projet et une journée de soutenance.
 - mercredi : matin vous êtes en binôme et commencer le projet.
 - jeudi : jeudi soir dernier délais vous avez terminé votre projet et celui-ci est visibile sur un dépôt Git type GitHub.
 
-- vendredi toute la journée soutenance par groupe de 2 en visio-conférence avec Zoom.us
+- vendredi après-midi soutenance ~ 10 minutes par binôme
 
 ## Contraintes
 
@@ -83,10 +83,10 @@ Durant mes demandes pour voir le code je vous demanderai de partager votre écra
 
 Tout le monde écoute la soutenance des autres cela rentre dans le cadre de l'hatitude professionel.
 
-- Présentation vous avez 15 à 20 minutes pour soutenir votre projet. Durant ces 20 minutes vous avez :
+- Présentation vous avez 10 à 15 minutes (max) pour soutenir votre projet. Durant ces 10 minutes vous avez :
 
     - 5 minutes pour une démo de la Web App.
-    - 5 minutes par candidat pour expliquer une feature.
+    - 5 pour expliquer une feature.
     - 5 minutes pour répondre à des questions techniques que je vous poserai.
 
 ## Mes projets
