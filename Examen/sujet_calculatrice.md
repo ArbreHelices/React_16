@@ -24,7 +24,7 @@ Vous allez développer une petite calculatrice.
 
     - L'ensemble des techniques vues en cours pour optimiser l'application.
 
-    - Si vous avez le temps vous testerez votre application (facultatif).
+    - Si vous avez le temps vous testerez votre application.
 
 L'application sera dépôsée sur un dépôt Git accessible pour la correction. L'application devra être buildée pour vérifier que tout fonctionne correctement.
 
@@ -34,15 +34,13 @@ La première page présentera la calculatrice avec ses différentes fonctionnali
 
 ![calculatrice](images/calculatrice.png)
 
-\newpage
-
 ## deuxième page "Mémo"
 
 Cette page présentera l'ensemble des calculs effectués par la calculatrice dans un tableau HTML Bootstrap. Un bouton sera visible sur la page (attention à la sémantique de la page) afin d'effacer le mémo.
 
 ## Tests
 
-Si il vous reste du temps vous testerez deux actions de la calculatrice.
+Vous testerez deux actions de la calculatrice.
 
 ## Remarques
 
