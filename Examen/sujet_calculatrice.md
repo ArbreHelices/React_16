@@ -4,23 +4,23 @@ Vous allez développer une petite calculatrice.
 
 ## Contraintes
 
-- Vous utiliserez React ou React Native & globaliser un state avec un context & useReducer ou  Redux.
+- Vous utiliserez React ou React Native & globalisez un state avec un context & useReducer ou Redux.
 
 - Si vous utilisez React et que vous maîtrisez bien le sujet l'utilisation des Hooks est un plus.
 
-- Vous utiliserez également une persistance soit dans un localStorage ou une base de données externes de votre choix pour faire persister des données.
+- Vous utiliserez également de la persistance sur des données, soit dans un localStorage, soit dans une base de données externes de votre choix.
 
 - Vous utiliserez les techniques suivantes :
 
     - Composition dans React
 
-    - **propTypes** pour vérifier le type des props
+    - **propTypes** pour vérifier le type des props (à voir avec moi)
 
     - Un module externe pour le routing.
 
     - Sass avec Bootstrap, des variables Sass pour la gestion des assets.
 
-    - L'ensemble des techniques vues en cours pour optimiser l'application.
+    - L'ensemble des techniques vues en cours pour optimiser l'application (attention au use case).
 
     - Si vous avez le temps vous testerez votre application.
 
