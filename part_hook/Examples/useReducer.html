@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- babel => compilation du JSX -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+const initialState = {count: 0};
+
+const reducer = (state, action) => {
+
+  switch (action.type) {
+    case 'incr':
+      return {count: state.count + 1};
+    case 'decr':
+      return {count: state.count - 1};
+    default:
+      return state;
+  }
+}
+
+const Counter = () => {
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  return (
+    <React.Fragment>
+      Counter : {state.count}
+      <p>
+        <button onClick={() => dispatch({type: 'decr'})}>-</button>
+      </p>
+      <p>
+         <button onClick={() => dispatch({type: 'incr'})}>+</button>
+      </p>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.render(
+    <Counter />,
+    document.getElementById('root')
+);
+
+    </script>
+</body>
+</html>

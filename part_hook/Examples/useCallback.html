@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- babel => compilation du JSX -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        // set permet d'avoir une collection d'objet unique
+       const triggerFunc = new Set();
+
+       const App = (props) => {
+            const [count, setCount] = React.useState(1);
+            const [pos, setPos] = React.useState(0);
+
+            // est-ce qu'il doit mémoiser l'exécution de la fonction
+            const incrementCount = React.useCallback( () => setCount(count => count + 1), []);
+            const incrementPos = React.useCallback( () => setPos(pos => pos + count), [count] );
+
+            triggerFunc.add(incrementCount);
+            triggerFunc.add(incrementPos);
+
+            return  (<div>
+                    <p> Count : {count} </p>
+                    <p> Pos : {pos} </p>
+                    <p>
+                        <button onClick={incrementCount}>count</button>
+                    </p>
+                    <p>
+                        <button onClick={incrementPos}>pos</button>
+                    </p>
+                    <p> Creation de fonction(s) & nouvelles fonctions: {triggerFunc.size} </p>
+            </div>
+            );
+
+       }
+
+        ReactDOM.render(
+            <App  />,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>
