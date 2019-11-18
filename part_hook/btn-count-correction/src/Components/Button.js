@@ -9,7 +9,15 @@ const Button = ({ handleClick, label, active }) => {
   if(active == undefined) active = false;
 
   return (
-   // TODO
+    <p>
+      <button 
+        className="btn btn-dark"
+        disabled={active}
+        onClick={handle}
+      >
+        {label}
+      </button>
+    </p>
   );
 }
 

@@ -16,7 +16,7 @@ const App = () => {
                 handleClick={() => setDisplay(!display)}
                 label="toggle Counter"
             />
-            {display && <Counter {...{ delay: 1000, display: display }} />}
+            {display && <Counter { ...{ delay: 1000, display: display } } />}
         </Container>
     );
 }
