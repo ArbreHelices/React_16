@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- babel => compilation du JSX -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+       const Counter = () => {
+        const [count1, setCount1] = React.useState(0);
+        const [count2, setCount2] = React.useState(0);
+
+        // Au montage la première fois.
+        // Dès que le state change.
+        React.useEffect(() => {
+            setTimeout(() => {
+            console.log(`First message: You clicked ${count1} times`);
+            }, 1000);
+        }, 
+        [count1]
+        );
+
+        // Au montage la première fois.
+        // Et dès que le state change.
+        // useEffect pour le state count2
+        React.useEffect(() => {
+            setTimeout(() => {
+
+            console.log(`Second message: You clicked ${count2} times`);
+            }, 1000);
+
+            return () => { console.log('Unmount & change state') }
+        }, 
+        [count2]
+        );
+
+        return (
+            <div>
+                <p>You clicked {count1} times</p>
+                <p>You clicked {count2} times</p>
+
+                <button onClick={() => setCount1(count1 + 1)}>
+                    Click me COUNT 1
+                </button>
+                <button onClick={() => setCount2(count2 + 1)}>
+                    Click me COUNT 2
+                </button>
+            </div>
+            );
+        }
+
+        ReactDOM.render(
+            <Counter />,
+            document.getElementById('root')
+        );
+
+    </script>
+</body>
+</html>
